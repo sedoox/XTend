@@ -1,0 +1,16 @@
+package uml
+
+import java.time.LocalDate
+
+class Main {
+	def static void main(String[] args){
+		val jesse = new Customer => [
+			firstName = 'Jesse'
+			lastName = 'James'
+			orders = new PhoneOrder => [
+				date = LocalDate.parse("2021-04-21")
+			]
+		]
+	}
+
+}

@@ -1,0 +1,6 @@
+package uml
+
+class Customer {
+	private var firstName
+	
+}

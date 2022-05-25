@@ -1,0 +1,8 @@
+package uml
+
+import java.time.LocalDate
+
+class Order {
+	pubic double amount
+	public LocalDate date 
+}

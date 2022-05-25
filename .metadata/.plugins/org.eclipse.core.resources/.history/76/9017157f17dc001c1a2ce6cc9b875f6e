@@ -1,0 +1,25 @@
+package uml
+
+import java.time.LocalDate
+import java.util.List
+import java.util.ArrayList
+import java.util.Arrays
+
+class Main {
+	def static void main(String[] args){
+		val jesse = new Customer => [
+			firstName = 'Jesse'
+			lastName = 'James'
+			orders = new ArrayList(Arrays.asList(new PhoneOrder => [
+				date = LocalDate.parse("2021-04-23")
+				amount = 400.25
+				number = "06445465"
+			], new PostalCode => [
+				date = LocalDate.parse("2021-04-23")
+				amount = 400.25
+				number = "06445465"
+			]))
+			]
+	}
+
+}

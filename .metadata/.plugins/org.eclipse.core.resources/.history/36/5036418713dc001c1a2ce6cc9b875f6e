@@ -1,0 +1,12 @@
+package uml
+
+class Customer {
+	var firstName
+	String lastName
+	
+	new(String firstName, String lastName) {
+		this.firstName = firstName
+		this.lastName = lastName
+	}
+	
+}

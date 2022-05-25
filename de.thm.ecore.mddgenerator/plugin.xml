@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="de.thm.ecore.mddgenerator.util.Ecore2JavaBuilder"
+         name="MDDGenerator Ecore To Java Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="false">
+         <run
+               class="de.thm.ecore.mddgenerator.util.Ecore2JavaBuilder">
+         </run>
+      </builder>
+   </extension> 
+   
+<extension point="org.eclipse.ui.commands">  
+    <command
+          categoryId="org.eclipse.ui.category.project"
+          defaultHandler="de.thm.ecore.mddgenerator.util.AddEcore2JavaBuilder"
+          id="de.thm.ecore.mddgenerator.AddEcore2JavaBuilder"
+          name="Add MDDGenerator Ecore To Java Builder">  
+    </command>
+</extension> 
+<extension point="org.eclipse.ui.menus">  
+        <menuContribution allPopups="false" locationURI="popup:org.eclipse.ui.projectConfigure?after=additions">  
+            <command
+                  commandId="de.thm.ecore.mddgenerator.AddEcore2JavaBuilder"
+                  icon="icon/favicon.ico"
+                  style="push">  
+            </command>
+        </menuContribution>   </extension>
+<extension
+      point="org.eclipse.ui.popupMenus">
+   <objectContribution
+         adaptable="false"
+         id="de.thm.ecore.mddgenerator.objectContribution1"
+         nameFilter="*.ecore"
+         objectClass="org.eclipse.core.resources.IFile">
+      <action
+            class="de.thm.ecore.mddgenerator.action.GenerateJavaCodeAction"
+            icon="icon/favicon.ico"
+            id="de.thm.ecore.mddgenerator.generateaction"
+            label="Generate Java code (with MDDGenerator)">
+      </action>
+   </objectContribution>
+</extension>
+</plugin>

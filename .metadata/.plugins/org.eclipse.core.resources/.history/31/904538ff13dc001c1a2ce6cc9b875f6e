@@ -1,0 +1,8 @@
+package uml
+
+class Main {
+	val jesse = new Customer => [
+		firstName = 'Jesse'
+		lastName = 'James'
+	]
+}

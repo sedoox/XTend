@@ -1,0 +1,13 @@
+package test
+
+class Test {
+	def static void main(String[] args) {
+		println("Hello World")
+		
+		while (true) {
+  			doSideEffect("foo")
+		}
+		
+		(1..999).filter[ i | i % 3 == 0 || i % 5 == 0].reduce[ i1, i2 | i1 + i2]
+	}
+}

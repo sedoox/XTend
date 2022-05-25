@@ -1,0 +1,11 @@
+package uml
+
+class Main {
+	def static void main(String[] args){
+			val jesse = new Customer => [
+		firstName = 'Jesse'
+		lastName = 'James'
+	]
+	}
+
+}
