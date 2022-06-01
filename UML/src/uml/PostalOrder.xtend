@@ -1,5 +1,5 @@
 package uml
 
-class PostalCode extends Order {
+class PostalOrder extends Order {
 	public String zipCode
 }

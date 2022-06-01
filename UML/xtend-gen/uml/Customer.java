@@ -1,12 +1,9 @@
 package uml;
 
-import java.util.List;
-
-@SuppressWarnings("all")
 public class Customer {
-  public String firstName;
+  public /* String */Object firstName;
   
-  public String lastName;
+  public /* String */Object lastName;
   
-  public List<Order> orders;
+  public /* List<Order> */Object orders;
 }

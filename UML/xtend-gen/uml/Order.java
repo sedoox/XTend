@@ -1,14 +1,11 @@
 package uml;
 
-import java.time.LocalDate;
-
-@SuppressWarnings("all")
 public class Order {
   public double amount;
   
-  public LocalDate date;
+  public /* LocalDate */Object date;
   
-  public Object calculate_costs() {
+  public java.lang.Object calculate_costs() {
     return null;
   }
 }

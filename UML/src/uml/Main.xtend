@@ -14,7 +14,7 @@ class Main {
 				date = LocalDate.parse("2021-04-23")
 				amount = 400.25
 				number = "06445465"
-			], new PostalCode => [
+			], new PostalOrder => [
 				date = LocalDate.parse("2021-04-23")
 				amount = 400.25
 				zipCode = "55887"
@@ -34,7 +34,7 @@ class Main {
 		val person3 = new Customer => [
 			firstName = 'William'
 			lastName = 'Wallace'
-			orders = new ArrayList(Arrays.asList(new PostalCode => [
+			orders = new ArrayList(Arrays.asList(new PostalOrder => [
 				date = LocalDate.parse("2017-02-04")
 				amount = 987.05
 				zipCode = "55822"
@@ -48,6 +48,41 @@ class Main {
 				number = "65411645"
 				]))
 			]
+	}
+	
+	def dispatch static double getDeliveryCosts(Order order) {
+		if (order.amount > 100) return 0
+		switch order {
+			PhoneOrder: if (order.amount <= 50) return 5 else return 4
+			PostalOrder: if (order.amount <= 50) return 5.5 else return 3
+			OnlineOrder: if (order.amount <= 50) return 4 else return 0
+			default: return -1
+		}
+	}
+	
+	def dispatch static double getDeliveryCosts(PhoneOrder order) {
+		if (order.amount <= 50)
+			return 5
+		else if (order.amount <= 100)
+			return 4
+		else
+			return 0
+	}
+	
+	def dispatch static double getDeliveryCosts(PostalOrder order) {
+		if (order.amount <= 50)
+			return 5.5
+		else if (order.amount <= 100)
+			return 3
+		else
+			return 0
+	}
+	
+	def dispatch static double getDeliveryCosts(OnlineOrder order) {
+		if (order.amount <= 50)
+			return 4
+		else
+			return 0
 	}
 
 }
