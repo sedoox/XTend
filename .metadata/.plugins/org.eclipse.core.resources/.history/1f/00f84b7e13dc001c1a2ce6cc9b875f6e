@@ -1,6 +1,0 @@
-package uml
-
-class Customer {
-	String firstName
-	String lastName
-}

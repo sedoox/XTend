@@ -6,7 +6,4 @@ class Order {
 	public double amount
 	public LocalDate date 
 	
-	
-	def calculate_costs() {
-	}
 }

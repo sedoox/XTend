@@ -1,5 +1,0 @@
-package uml
-
-class PostalCode extends Order {
-	
-}

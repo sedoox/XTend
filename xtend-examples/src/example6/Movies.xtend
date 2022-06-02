@@ -18,6 +18,7 @@ import org.junit.Test
 import static org.junit.Assert.*
 
 import static extension com.google.common.io.CharStreams.*
+import java.util.List
 
 class Movies {
 	
@@ -65,7 +66,29 @@ class Movies {
 	static val abc = (year1..year2).filter[ a | !movies.map[year].contains(a)]
 	
 	def static void main(String[] args) {
-		println(yearWithLessMovies)
+		println(getNBottles(20))
+	}
+	
+	def static printWithTemplate(List<Movie> movies) {
+		'''«FOR movie : movies BEFORE "Filme:" SEPARATOR "
+----------------------"»
+		   Titel:               «movie.title»
+		   Rating:              «movie.rating»
+		   Erscheinungsjahr:    «movie.year»
+		   
+		   «IF movie.rating >= 7.0»Ganz klare Empfehlung!
+		   «ELSEIF movie.rating >= 5.0»Mittelmäßige Kritiken!«ENDIF»
+		   
+		   Kategorien:          «FOR category : movie.categories SEPARATOR ", "»«category»«ENDFOR»
+		   «ENDFOR»
+		   '''
+	}
+	
+	def static getNBottles(Integer n) {
+		'''«FOR i : (n..1) SEPARATOR ""»
+		«i» bottles of beer on the wall, «i» bottles of beer.
+		Take one down and pass it around, «i-1» bottles of beer on the wall.«ENDFOR»
+		'''
 	}
 }
 

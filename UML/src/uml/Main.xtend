@@ -48,6 +48,8 @@ class Main {
 				number = "65411645"
 				]))
 			]
+			
+			println(person3.summary)
 	}
 	
 	def dispatch static double getDeliveryCosts(Order order) {

@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
@@ -145,6 +146,92 @@ public class Movies {
   }));
   
   public static void main(final String[] args) {
-    InputOutput.<Set<Map.Entry<Integer, List<Movie>>>>println(Movies.yearWithLessMovies);
+    InputOutput.<CharSequence>println(Movies.getNBottles(Integer.valueOf(20)));
+  }
+  
+  public static CharSequence printWithTemplate(final List<Movie> movies) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _hasElements = false;
+      for(final Movie movie : movies) {
+        if (!_hasElements) {
+          _hasElements = true;
+          _builder.append("Filme:");
+        } else {
+          _builder.appendImmediate("\n----------------------", "");
+        }
+        _builder.newLineIfNotEmpty();
+        _builder.append("Titel:               ");
+        String _title = movie.getTitle();
+        _builder.append(_title);
+        _builder.newLineIfNotEmpty();
+        _builder.append("Rating:              ");
+        double _rating = movie.getRating();
+        _builder.append(_rating);
+        _builder.newLineIfNotEmpty();
+        _builder.append("Erscheinungsjahr:    ");
+        int _year = movie.getYear();
+        _builder.append(_year);
+        _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        {
+          double _rating_1 = movie.getRating();
+          boolean _greaterEqualsThan = (_rating_1 >= 7.0);
+          if (_greaterEqualsThan) {
+            _builder.append("Ganz klare Empfehlung!");
+            _builder.newLineIfNotEmpty();
+          } else {
+            double _rating_2 = movie.getRating();
+            boolean _greaterEqualsThan_1 = (_rating_2 >= 5.0);
+            if (_greaterEqualsThan_1) {
+              _builder.append("Mittelmäßige Kritiken!");
+            }
+          }
+        }
+        _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        _builder.append("Kategorien:          ");
+        {
+          Set<String> _categories = movie.getCategories();
+          boolean _hasElements_1 = false;
+          for(final String category : _categories) {
+            if (!_hasElements_1) {
+              _hasElements_1 = true;
+            } else {
+              _builder.appendImmediate(", ", "");
+            }
+            _builder.append(category);
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public static CharSequence getNBottles(final Integer n) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      IntegerRange _upTo = new IntegerRange((n).intValue(), 1);
+      boolean _hasElements = false;
+      for(final Integer i : _upTo) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate("", "");
+        }
+        _builder.newLineIfNotEmpty();
+        _builder.append(i);
+        _builder.append(" bottles of beer on the wall, ");
+        _builder.append(i);
+        _builder.append(" bottles of beer.");
+        _builder.newLineIfNotEmpty();
+        _builder.append("Take one down and pass it around, ");
+        _builder.append(((i).intValue() - 1));
+        _builder.append(" bottles of beer on the wall.");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
 }

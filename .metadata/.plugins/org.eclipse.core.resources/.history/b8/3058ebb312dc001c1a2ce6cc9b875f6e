@@ -1,6 +1,0 @@
-package uml
-
-class Order {
-	double amount
-	LocalDate date 
-}

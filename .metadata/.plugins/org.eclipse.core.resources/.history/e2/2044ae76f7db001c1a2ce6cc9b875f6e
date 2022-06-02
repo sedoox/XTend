@@ -1,8 +1,0 @@
-package test
-
-class Test {
-	def static void main(String[] args) {
-		println("Hello World")
-		(1..999).filter[ i | i % 3 == 0 || i % == 0].reduce[ i1, i2 | i1 + i1]
-	}
-}
